@@ -5,23 +5,6 @@
 - Population rank charts was also discussed based on GDP per capita and infant mortality rates.
 
 
----
-title: "Project 2: An investigation of the trends in curated GapMinder World Health Data"
-author: "Patrice Lewis"
-date: "`r Sys.Date()`"
-format: docx
-toc: true
-self-contained: true
-knitr: 
- opts_chunk: 
-   echo: FALSE      # No code shown
-   collapse: TRUE   # Prevents code blocking together
-   message: FALSE   # Prevents messages from showing
-   warning: FALSE  # Prevents warnings from showing
-   messages: FALSE  # Prevents messages
-editor: source
-bibliography: project_1_bib.bib
----
 
 
 
@@ -79,6 +62,8 @@ GapMinder World Health data was curated from raw data into a more complete datas
 
 
 ```{r data-downloads}
+#| results: hide
+
 
 #install.packages("tidyverse")
 # Contains color palette for bar plot
@@ -112,6 +97,7 @@ total_gdp_ppp_inf_adj <- read_csv("raw_data/total_gdp_ppp_inflation_adjusted.csv
 ```
 
 ```{r country-reg-setup}
+#| results: hide
 
 # Gives a snapshot of variables
 # glimpse(country_regions_table_20220628)
@@ -125,6 +111,7 @@ country_reg2 <- country_reg |>
 ```
 
 ```{r total-fertility-setup}
+#| results: hide
 
 # Fertility(total) data stored in this environment
 total_fertility <- as_tibble(children_per_woman_total_fertility) %>%
@@ -139,6 +126,7 @@ total_fertility <- as_tibble(children_per_woman_total_fertility) %>%
 ```
 
 ```{r pop-total-setup}
+#| results: hide
 
 # Used to visualize dataset
 # glimpse(population_total)
@@ -159,6 +147,8 @@ pop_total <- as_tibble(population_total) %>%
 ```
 
 ```{r inf-mort-rate-setup}
+#| results: hide
+
 
 # Infant mortality data stored in this environment
 infant_mort <- as_tibble(inf_mort_rate) %>% 
@@ -172,6 +162,8 @@ infant_mort <- as_tibble(inf_mort_rate) %>%
 ```
 
 ```{r life-exp-setup}
+#| results: hide
+
 
 # Used to visualize dataset
 # glimpse(life_expectancy_years)
@@ -186,6 +178,8 @@ life_expec <- as_tibble(life_expectancy_years) %>%
 ```
 
 ```{r gdp-adj-setup}
+#| results: hide
+
 
 # Used to visualize dataset
 # glimpse(total_gdp_ppp_inf_adj)
@@ -249,6 +243,7 @@ dataleft_2 <- dataleft_2 %>%
 ```
 
 ```{r computed-gdppc}
+#| results: hide
 
 # Used to examine unique values in 'Population' variable
 # unique(dataleft_2$Population)
@@ -368,6 +363,7 @@ gdp_per_capita %>%
 ```
 
 ```{r joining-final}
+#| results: hide
 
 # glimpse(dataleft_2)
 
@@ -397,6 +393,7 @@ glimpse(data_table_full2)
 ```
 
 ```{r dslabs}
+#| results: hide
 
 # Visualization of 'dslabs' package for Gapminder data
 # glimpse(gapminder)
@@ -413,6 +410,8 @@ write.csv(data_table_full2, "clean_data/dataset_full.csv")
 ```
 
 ```{r tibble}
+#| results: hide
+
 
 full_table_df <-                   
   as_tibble(data_table_full2)
@@ -848,6 +847,12 @@ In conclusion, a global positive trend can be seen in the relationship between `
 
 
 # References
+
+
+
+
+
+
 
 
 
